@@ -1,0 +1,24 @@
+{
+  "date": "2026-06-17",
+  "run_id": "2026-06-17_15-51_moscow",
+  "checked_at": "2026-06-17T11:51:21.057Z",
+  "checked_at_local": "2026-06-17 15:51 UTC+4",
+  "region": "Москва",
+  "source": "seller_explainer",
+  "products": [
+    {
+      "product_key": "ring-409",
+      "product_name": "Кольцо 01-409",
+      "queries": 10,
+      "found_rows": 10,
+      "unique_found_skus": 4
+    },
+    {
+      "product_key": "pendant-03-173",
+      "product_name": "Подвеска 03-173",
+      "queries": 10,
+      "found_rows": 9,
+      "unique_found_skus": 1
+    }
+  ]
+}
