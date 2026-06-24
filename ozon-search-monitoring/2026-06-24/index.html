@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ozon search monitoring 2026-06-24</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --text: #18202f;
+      --muted: #687386;
+      --line: #dce2ec;
+      --accent: #005bff;
+      --good: #e8f7ee;
+      --warn: #fff5dc;
+      --bad: #ffeded;
+      --shadow: 0 10px 24px rgba(23, 32, 51, 0.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111827;
+        --card: #172033;
+        --text: #edf2ff;
+        --muted: #a8b3c7;
+        --line: #2a354a;
+        --accent: #7aa2ff;
+        --good: #143524;
+        --warn: #3b3014;
+        --bad: #3f1d22;
+        --shadow: none;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    header {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    h1, h2 { margin: 0; line-height: 1.15; }
+    h1 { font-size: clamp(28px, 4vw, 44px); }
+    h2 { font-size: 24px; }
+    a { color: var(--accent); }
+    .muted { color: var(--muted); }
+    .card, .hero {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .hero { padding: 24px; }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .metrics.compact { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 16px 0; }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      background: color-mix(in srgb, var(--card), var(--bg) 35%);
+    }
+    .metric-label { color: var(--muted); font-size: 13px; }
+    .metric-value { font-size: 28px; font-weight: 750; margin-top: 4px; }
+    .metric-hint { color: var(--muted); font-size: 12px; margin-top: 4px; }
+    .section-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .pill, .chip, .sku {
+      display: inline-block;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 8px;
+      margin: 2px;
+      white-space: nowrap;
+      font-size: 13px;
+    }
+    .pill {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+      font-weight: 650;
+    }
+    .table-wrap { overflow-x: auto; margin-top: 12px; }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 900px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+    th { color: var(--muted); font-weight: 650; }
+    tr.good { background: var(--good); }
+    tr.warn { background: var(--warn); }
+    tr.bad { background: var(--bad); }
+    details {
+      border-top: 1px solid var(--line);
+      margin-top: 16px;
+      padding-top: 14px;
+    }
+    summary { cursor: pointer; font-weight: 700; }
+    li { margin: 6px 0; }
+    footer { color: var(--muted); margin: 24px 0 8px; font-size: 13px; }
+    @media (max-width: 760px) {
+      .page { padding: 14px; }
+      .metrics, .metrics.compact { grid-template-columns: 1fr; }
+      .section-head { display: grid; }
+      table, thead, tbody, tr, th, td { display: block; min-width: 0; }
+      thead { display: none; }
+      tr {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        margin: 10px 0;
+        padding: 8px;
+      }
+      td {
+        border: 0;
+        padding: 7px 4px;
+      }
+      td::before {
+        content: attr(data-label);
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        margin-bottom: 3px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p><a href="../">← Архив отчётов</a></p>
+      <h1>Мониторинг видимости Ozon</h1>
+      <p class="muted">Дата: 2026-06-24 · Проверено: 2026-06-24 17:07 UTC+4 · Регион: Москва · Источник: seller_explainer</p>
+      <div class="metrics">
+
+    <div class="metric">
+      <div class="metric-label">Товаров</div>
+      <div class="metric-value">2</div>
+
+    </div>
+
+    <div class="metric">
+      <div class="metric-label">Запросов</div>
+      <div class="metric-value">20</div>
+
+    </div>
+
+    <div class="metric">
+      <div class="metric-label">Найдено SKU-запросов</div>
+      <div class="metric-value">19</div>
+
+    </div>
+
+    <div class="metric">
+      <div class="metric-label">Уникальных найденных SKU</div>
+      <div class="metric-value">6</div>
+
+    </div>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Что важно сегодня</h2>
+      <ul><li>Подвеска 03-173: глубокая позиция 687 по запросу «подвеска серебро 925 женская».</li><li>Подвеска 03-173: глубокая позиция 955 по запросу «подвеска на шею женская серебро».</li><li>Подвеска 03-173: глубокая позиция 878 по запросу «серебряная подвеска с фианитом».</li><li>Подвеска 03-173: глубокая позиция 834 по запросу «кулон серебро 925 женский».</li><li>Подвеска 03-173: не найдено по запросу «подвеска сердце с фианитом».</li></ul>
+    </section>
+
+
+        <section class="card">
+          <div class="section-head">
+            <div>
+              <h2>Кольцо 01-409</h2>
+              <p class="muted">ring-409</p>
+            </div>
+            <div class="pill">10 SKU-запросов</div>
+          </div>
+          <div class="metrics compact">
+
+    <div class="metric">
+      <div class="metric-label">Запросов</div>
+      <div class="metric-value">10</div>
+
+    </div>
+
+    <div class="metric">
+      <div class="metric-label">Найдено SKU-запросов</div>
+      <div class="metric-value">10</div>
+
+    </div>
+
+    <div class="metric">
+      <div class="metric-label">Уникальных SKU</div>
+      <div class="metric-value">5</div>
+
+    </div>
+          </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Запрос</th>
+            <th>Найдено</th>
+            <th>Лучшая позиция</th>
+            <th>Не найдены</th>
+            <th>Топ-3 конкурента</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="warn">
+          <td data-label="Запрос">кольцо серебро 925 женское</td>
+          <td data-label="Найдено">1/11</td>
+          <td data-label="Лучшая позиция"><span class="sku">828068034: 151</span></td>
+          <td data-label="Не найдены"><span class="sku muted">828068057</span><span class="sku muted">828068008</span><span class="sku muted">828068040</span><span class="sku muted">828067985</span><span class="sku muted">828068044</span><span class="sku muted">828068007</span><span class="sku muted">828067997</span><span class="sku muted">828068029</span><span class="sku muted">828068047</span><span class="sku muted">1418923264</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. Slavna. 3043755630</span><span class="chip">2. bamoer. 3202802977</span><span class="chip">3. Main Dizzain. 3752721846</span></td>
+        </tr>
+        <tr class="warn">
+          <td data-label="Запрос">серебряное кольцо женское</td>
+          <td data-label="Найдено">1/11</td>
+          <td data-label="Лучшая позиция"><span class="sku">828068034: 147</span></td>
+          <td data-label="Не найдены"><span class="sku muted">828068057</span><span class="sku muted">828068008</span><span class="sku muted">828068040</span><span class="sku muted">828067985</span><span class="sku muted">828068044</span><span class="sku muted">828068007</span><span class="sku muted">828067997</span><span class="sku muted">828068029</span><span class="sku muted">828068047</span><span class="sku muted">1418923264</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. Slavna. 3043755630</span><span class="chip">2. Veronika jewelry factory. 3390798065</span><span class="chip">3. SOKOLOV. 311799210</span></td>
+        </tr>
+        <tr class="warn">
+          <td data-label="Запрос">кольцо серебро 925 с фианитами</td>
+          <td data-label="Найдено">1/11</td>
+          <td data-label="Лучшая позиция"><span class="sku">828068047: 259</span></td>
+          <td data-label="Не найдены"><span class="sku muted">828068057</span><span class="sku muted">828068008</span><span class="sku muted">828068040</span><span class="sku muted">828067985</span><span class="sku muted">828068044</span><span class="sku muted">828068007</span><span class="sku muted">828067997</span><span class="sku muted">828068034</span><span class="sku muted">828068029</span><span class="sku muted">1418923264</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. UVI jewellery. 1612463648</span><span class="chip">2. Магазин ювелирных украшений &quot;JULE&quot;. 1684554824</span><span class="chip">3. Veronika jewelry factory. 3518297468</span></td>
+        </tr>
+        <tr class="warn">
+          <td data-label="Запрос">серебряное кольцо с фианитами</td>
+          <td data-label="Найдено">1/11</td>
+          <td data-label="Лучшая позиция"><span class="sku">828068040: 190</span></td>
+          <td data-label="Не найдены"><span class="sku muted">828068057</span><span class="sku muted">828068008</span><span class="sku muted">828067985</span><span class="sku muted">828068044</span><span class="sku muted">828068007</span><span class="sku muted">828067997</span><span class="sku muted">828068034</span><span class="sku muted">828068029</span><span class="sku muted">828068047</span><span class="sku muted">1418923264</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. UVI jewellery. 1612463648</span><span class="chip">2. SOKOLOV. 297651082</span><span class="chip">3. F-Jewelry. 199525033</span></td>
+        </tr>
+        <tr class="good">
+          <td data-label="Запрос">кольцо дорожка серебро 925</td>
+          <td data-label="Найдено">1/11</td>
+          <td data-label="Лучшая позиция"><span class="sku">828068040: 93</span></td>
+          <td data-label="Не найдены"><span class="sku muted">828068057</span><span class="sku muted">828068008</span><span class="sku muted">828067985</span><span class="sku muted">828068044</span><span class="sku muted">828068007</span><span class="sku muted">828067997</span><span class="sku muted">828068034</span><span class="sku muted">828068029</span><span class="sku muted">828068047</span><span class="sku muted">1418923264</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. UVI jewellery. 1612463648</span><span class="chip">2. UVI jewellery. 1617857696</span><span class="chip">3. LAIR. 1000816480</span></td>
+        </tr>
+        <tr class="warn">
+          <td data-label="Запрос">кольцо дорожка с фианитами</td>
+          <td data-label="Найдено">1/11</td>
+          <td data-label="Лучшая позиция"><span class="sku">828068040: 248</span></td>
+          <td data-label="Не найдены"><span class="sku muted">828068057</span><span class="sku muted">828068008</span><span class="sku muted">828067985</span><span class="sku muted">828068044</span><span class="sku muted">828068007</span><span class="sku muted">828067997</span><span class="sku muted">828068034</span><span class="sku muted">828068029</span><span class="sku muted">828068047</span><span class="sku muted">1418923264</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. UVI jewellery. 1612463648</span><span class="chip">2. SOKOLOV. 747408769</span><span class="chip">3. Аксессорика. 2133346299</span></td>
+        </tr>
+        <tr class="warn">
+          <td data-label="Запрос">кольцо серебряное с камнями женское</td>
+          <td data-label="Найдено">1/11</td>
+          <td data-label="Лучшая позиция"><span class="sku">828068047: 227</span></td>
+          <td data-label="Не найдены"><span class="sku muted">828068057</span><span class="sku muted">828068008</span><span class="sku muted">828068040</span><span class="sku muted">828067985</span><span class="sku muted">828068044</span><span class="sku muted">828068007</span><span class="sku muted">828067997</span><span class="sku muted">828068034</span><span class="sku muted">828068029</span><span class="sku muted">1418923264</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. Kabarovsky Casual. 900770338</span><span class="chip">2. SOKOLOV. 634752687</span><span class="chip">3. Veronika jewelry factory. 2035097303</span></td>
+        </tr>
+        <tr class="">
+          <td data-label="Запрос">кольцо серебро родированное 925</td>
+          <td data-label="Найдено">1/11</td>
+          <td data-label="Лучшая позиция"><span class="sku">1418923264: 451</span></td>
+          <td data-label="Не найдены"><span class="sku muted">828068057</span><span class="sku muted">828068008</span><span class="sku muted">828068040</span><span class="sku muted">828067985</span><span class="sku muted">828068044</span><span class="sku muted">828068007</span><span class="sku muted">828067997</span><span class="sku muted">828068034</span><span class="sku muted">828068029</span><span class="sku muted">828068047</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. Эдельвейс. 3031911692</span><span class="chip">2. ООО &quot;Сириус&quot;. 841514047</span><span class="chip">3. UVI jewellery. 1612463648</span></td>
+        </tr>
+        <tr class="warn">
+          <td data-label="Запрос">кольцо подарок девушке серебро</td>
+          <td data-label="Найдено">1/11</td>
+          <td data-label="Лучшая позиция"><span class="sku">828068047: 223</span></td>
+          <td data-label="Не найдены"><span class="sku muted">828068057</span><span class="sku muted">828068008</span><span class="sku muted">828068040</span><span class="sku muted">828067985</span><span class="sku muted">828068044</span><span class="sku muted">828068007</span><span class="sku muted">828067997</span><span class="sku muted">828068034</span><span class="sku muted">828068029</span><span class="sku muted">1418923264</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. SOKOLOV. 2346632141</span><span class="chip">2. KGV. 853075049</span><span class="chip">3. ШЁЛКОВЫЙ БЫТ. 3214919041</span></td>
+        </tr>
+        <tr class="good">
+          <td data-label="Запрос">кольцо коктейльное женское серебро</td>
+          <td data-label="Найдено">1/11</td>
+          <td data-label="Лучшая позиция"><span class="sku">828068044: 24</span></td>
+          <td data-label="Не найдены"><span class="sku muted">828068057</span><span class="sku muted">828068008</span><span class="sku muted">828068040</span><span class="sku muted">828067985</span><span class="sku muted">828068007</span><span class="sku muted">828067997</span><span class="sku muted">828068034</span><span class="sku muted">828068029</span><span class="sku muted">828068047</span><span class="sku muted">1418923264</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. Магазин ювелирных украшений &quot;JULE&quot;. 1631910346</span><span class="chip">2. Alkemia. 4581951666</span><span class="chip">3. Спика Голд. 1691357035</span></td>
+        </tr></tbody>
+      </table>
+    </div>
+          <details><summary>Топ-10 конкурентов по запросам</summary><ul><li><strong>кольцо серебро 925 женское:</strong> 1. Slavna 3043755630; 2. bamoer 3202802977; 3. Main Dizzain 3752721846; 4. Veronika jewelry factory 3390798065; 5. Магазин ювелирных украшений &quot;JULE&quot; 1600277557; 6. SOUL STORY 1970081759; 7. SOUL STORY 1527091564; 8. SOUL STORY 1527099373; 9. Золотко 1334553252; 10. Veronika jewelry factory 3536930878</li><li><strong>серебряное кольцо женское:</strong> 1. Slavna 3043755630; 2. Veronika jewelry factory 3390798065; 3. SOKOLOV 311799210; 4. SOKOLOV 656489304; 5. SOKOLOV 986262782; 6. BEST SILVER 3020591880; 7. Atlanta jewelry 4531622438; 8. Veronika jewelry factory 3518297468; 9. SOUL STORY 1527091564; 10. БЮЗ КАРАТ 1712231201</li><li><strong>кольцо серебро 925 с фианитами:</strong> 1. UVI jewellery 1612463648; 2. Магазин ювелирных украшений &quot;JULE&quot; 1684554824; 3. Veronika jewelry factory 3518297468; 4. Skazka Natali Romanovoi 450229602; 5. ADAMAS 1758902433; 6. SOKOLOV 655499224; 7. Золотко 1335048008; 8. SOKOLOV 511130720; 9. ADAMAS 1758925418; 10. bamoer 3202802977</li><li><strong>серебряное кольцо с фианитами:</strong> 1. UVI jewellery 1612463648; 2. SOKOLOV 297651082; 3. F-Jewelry 199525033; 4. SOKOLOV 511130720; 5. Магазин ювелирных украшений &quot;JULE&quot; 1684554824; 6. Veronika jewelry factory 3516896579; 7. Veronika jewelry factory 3536930878; 8. COOBACHY JEWELRY 1210311012; 9. SOKOLOV 656489304; 10. SOKOLOV 747408769</li><li><strong>кольцо дорожка серебро 925:</strong> 1. UVI jewellery 1612463648; 2. UVI jewellery 1617857696; 3. LAIR 1000816480; 4. SOKOLOV 747408769; 5. SOKOLOV 297651082; 6. Skazka Natali Romanovoi 450229602; 7. ЛЕПТА 2124902773; 8. UVI jewellery 3562981892; 9. Veronika jewelry factory 3390798065; 10. ADAMAS 1758902433</li><li><strong>кольцо дорожка с фианитами:</strong> 1. UVI jewellery 1612463648; 2. SOKOLOV 747408769; 3. Аксессорика 2133346299; 4. БЮЗ КАРАТ 2470113021; 5. SOKOLOV 297651082; 6. NOIMA 3716923561; 7. KARATOV Official 3424016393; 8. Veronika jewelry factory 4583759381; 9. SOKOLOV 511130720; 10. COOBACHY JEWELRY 1210311012</li><li><strong>кольцо серебряное с камнями женское:</strong> 1. Kabarovsky Casual 900770338; 2. SOKOLOV 634752687; 3. Veronika jewelry factory 2035097303; 4. SOKOLOV 1252804900; 5. MultSilver 603530067; 6. KrasnoeGold 632070969; 7. BEST SILVER 3074158693; 8. Love stone jewelry 1886775446; 9. Quizas 3744618562; 10. Магазин ювелирных украшений &quot;JULE&quot; 1684554824</li><li><strong>кольцо серебро родированное 925:</strong> 1. Эдельвейс 3031911692; 2. ООО &quot;Сириус&quot; 841514047; 3. UVI jewellery 1612463648; 4. Veronika jewelry factory 4583759381; 5. Veronika jewelry factory 3390798065; 6. LAIR 579680438; 7. Alkemia 4581951666; 8. Slavna 1972831865; 9. Эдельвейс 2939972819; 10. Ювелирный бренд ЗОЛОТСЕ 4743301354</li><li><strong>кольцо подарок девушке серебро:</strong> 1. SOKOLOV 2346632141; 2. KGV 853075049; 3. ШЁЛКОВЫЙ БЫТ 3214919041; 4. SOUL STORY 1769236309; 5. Мастерская Анучина 3814910906; 6. Verchy 835760433; 7. KrasnoeGold 1196700402; 8. ЛЕПТА 2438069957; 9. Veronika jewelry factory 1767180117; 10. ЛЕПТА 1619455863</li><li><strong>кольцо коктейльное женское серебро:</strong> 1. Магазин ювелирных украшений &quot;JULE&quot; 1631910346; 2. Alkemia 4581951666; 3. Спика Голд 1691357035; 4. noabuse 2425724637; 5. Main Dizzain 761138529; 6. Золотко 1627234762; 7. 585 ЗОЛОТОЙ 1832496325; 8. Veronika jewelry factory 3390802560; 9. Спика Голд 256789501; 10. SOUL STORY 1527091814</li></ul></details>
+        </section>
+        <section class="card">
+          <div class="section-head">
+            <div>
+              <h2>Подвеска 03-173</h2>
+              <p class="muted">pendant-03-173</p>
+            </div>
+            <div class="pill">9 SKU-запросов</div>
+          </div>
+          <div class="metrics compact">
+
+    <div class="metric">
+      <div class="metric-label">Запросов</div>
+      <div class="metric-value">10</div>
+
+    </div>
+
+    <div class="metric">
+      <div class="metric-label">Найдено SKU-запросов</div>
+      <div class="metric-value">9</div>
+
+    </div>
+
+    <div class="metric">
+      <div class="metric-label">Уникальных SKU</div>
+      <div class="metric-value">1</div>
+
+    </div>
+          </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Запрос</th>
+            <th>Найдено</th>
+            <th>Лучшая позиция</th>
+            <th>Не найдены</th>
+            <th>Топ-3 конкурента</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="">
+          <td data-label="Запрос">подвеска серебро 925</td>
+          <td data-label="Найдено">1/1</td>
+          <td data-label="Лучшая позиция"><span class="sku">910680900: 434</span></td>
+          <td data-label="Не найдены"><span class="muted">—</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. Veronika jewelry factory. 4594713442</span><span class="chip">2. VALTERA. 240067721</span><span class="chip">3. SOKOLOV. 655501554</span></td>
+        </tr>
+        <tr class="good">
+          <td data-label="Запрос">кулон сердце серебро</td>
+          <td data-label="Найдено">1/1</td>
+          <td data-label="Лучшая позиция"><span class="sku">910680900: 71</span></td>
+          <td data-label="Не найдены"><span class="muted">—</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. F-Jewelry. 1608818363</span><span class="chip">2. Veronika jewelry factory. 4594713442</span><span class="chip">3. Veronika jewelry factory. 2718127279</span></td>
+        </tr>
+        <tr class="good">
+          <td data-label="Запрос">подвеска сердце серебро 925</td>
+          <td data-label="Найдено">1/1</td>
+          <td data-label="Лучшая позиция"><span class="sku">910680900: 78</span></td>
+          <td data-label="Не найдены"><span class="muted">—</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. F-Jewelry. 1608818363</span><span class="chip">2. Tradejewelry. 859204514</span><span class="chip">3. SOKOLOV. 1400725722</span></td>
+        </tr>
+        <tr class="">
+          <td data-label="Запрос">подвеска серебро 925 женская</td>
+          <td data-label="Найдено">1/1</td>
+          <td data-label="Лучшая позиция"><span class="sku">910680900: 687</span></td>
+          <td data-label="Не найдены"><span class="muted">—</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. Veronika jewelry factory. 4594713442</span><span class="chip">2. SOKOLOV. 655501554</span><span class="chip">3. Tradejewelry. 859204514</span></td>
+        </tr>
+        <tr class="">
+          <td data-label="Запрос">подвеска на шею женская серебро</td>
+          <td data-label="Найдено">1/1</td>
+          <td data-label="Лучшая позиция"><span class="sku">910680900: 955</span></td>
+          <td data-label="Не найдены"><span class="muted">—</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. Veronika jewelry factory. 4594713442</span><span class="chip">2. SOKOLOV. 655501554</span><span class="chip">3. 585 ЗОЛОТОЙ. 2731589836</span></td>
+        </tr>
+        <tr class="">
+          <td data-label="Запрос">серебряная подвеска с фианитом</td>
+          <td data-label="Найдено">1/1</td>
+          <td data-label="Лучшая позиция"><span class="sku">910680900: 878</span></td>
+          <td data-label="Не найдены"><span class="muted">—</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. Veronika jewelry factory. 4594713442</span><span class="chip">2. SOKOLOV. 655500098</span><span class="chip">3. SOKOLOV. 297651517</span></td>
+        </tr>
+        <tr class="warn">
+          <td data-label="Запрос">кулон сердечко серебро</td>
+          <td data-label="Найдено">1/1</td>
+          <td data-label="Лучшая позиция"><span class="sku">910680900: 170</span></td>
+          <td data-label="Не найдены"><span class="muted">—</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. F-Jewelry. 1608818363</span><span class="chip">2. DevaFamily. 3169325068</span><span class="chip">3. Veronika jewelry factory. 4594713442</span></td>
+        </tr>
+        <tr class="warn">
+          <td data-label="Запрос">кулон сердце серебро 925</td>
+          <td data-label="Найдено">1/1</td>
+          <td data-label="Лучшая позиция"><span class="sku">910680900: 150</span></td>
+          <td data-label="Не найдены"><span class="muted">—</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. SOKOLOV. 1400725722</span><span class="chip">2. F-Jewelry. 1608818363</span><span class="chip">3. Магазин ювелирных украшений &quot;JULE&quot;. 3463825128</span></td>
+        </tr>
+        <tr class="">
+          <td data-label="Запрос">кулон серебро 925 женский</td>
+          <td data-label="Найдено">1/1</td>
+          <td data-label="Лучшая позиция"><span class="sku">910680900: 834</span></td>
+          <td data-label="Не найдены"><span class="muted">—</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. SOKOLOV. 655501554</span><span class="chip">2. Официальный магазин &quot;Ювелир Карат&quot;. 230632034</span><span class="chip">3. Veronika jewelry factory. 2718127279</span></td>
+        </tr>
+        <tr class="bad">
+          <td data-label="Запрос">подвеска сердце с фианитом</td>
+          <td data-label="Найдено">0/1</td>
+          <td data-label="Лучшая позиция"><span class="muted">не найдено</span></td>
+          <td data-label="Не найдены"><span class="sku muted">910680900</span></td>
+          <td data-label="Топ-3 конкурента"><span class="chip">1. Saxar and Bysinka. 4670811747</span><span class="chip">2. Saxar and Bysinka. 1527057328</span><span class="chip">3. Saxar and Bysinka. 2163462447</span></td>
+        </tr></tbody>
+      </table>
+    </div>
+          <details><summary>Топ-10 конкурентов по запросам</summary><ul><li><strong>подвеска серебро 925:</strong> 1. Veronika jewelry factory 4594713442; 2. VALTERA 240067721; 3. SOKOLOV 655501554; 4. Золото Русских 226197410; 5. Slavna 1002175485; 6. SOROKIN JEWELRY 3823814647; 7. F-Jewelry 1608818363; 8. F-Jewelry 234161278; 9. Maskom 3595322160; 10. KU&amp;KU 339670468</li><li><strong>кулон сердце серебро:</strong> 1. F-Jewelry 1608818363; 2. Veronika jewelry factory 4594713442; 3. Veronika jewelry factory 2718127279; 4. SOKOLOV 1209664945; 5. Магазин ювелирных украшений &quot;JULE&quot; 3463825128; 6. SOKOLOV 1400725722; 7. SOROKIN JEWELRY 3450173783; 8. БЮЗ КАРАТ 552208227; 9. SOKOLOV 656488822; 10. Veronika jewelry factory 2476718109</li><li><strong>подвеска сердце серебро 925:</strong> 1. F-Jewelry 1608818363; 2. Tradejewelry 859204514; 3. SOKOLOV 1400725722; 4. SOKOLOV 1209664945; 5. 585 ЗОЛОТОЙ 2731589836; 6. ADAMAS 2054059782; 7. Veronika jewelry factory 2718127279; 8. Veronika jewelry factory 4594713442; 9. БЮЗ КАРАТ 552208227; 10. BEST SILVER 3789410449</li><li><strong>подвеска серебро 925 женская:</strong> 1. Veronika jewelry factory 4594713442; 2. SOKOLOV 655501554; 3. Tradejewelry 859204514; 4. SOKOLOV 1791319273; 5. SOKOLOV 523689733; 6. ОРИЕНТАЛЬ 2201187526; 7. Veronika jewelry factory 2718127279; 8. Maskom 3490651493; 9. Золото Русских 226197410; 10. Veronika jewelry factory 845554820</li><li><strong>подвеска на шею женская серебро:</strong> 1. Veronika jewelry factory 4594713442; 2. SOKOLOV 655501554; 3. 585 ЗОЛОТОЙ 2731589836; 4. SOKOLOV 1791319273; 5. Ювелирная компания &quot; Роскошь&quot; 1758188948; 6. Main Dizzain 1695742158; 7. Lamponi 1419265976; 8. F-Jewelry 234161278; 9. SILVERME 4743480016; 10. F-Jewelry 650232892</li><li><strong>серебряная подвеска с фианитом:</strong> 1. Veronika jewelry factory 4594713442; 2. SOKOLOV 655500098; 3. SOKOLOV 297651517; 4. Русское серебро 1956356748; 5. ОРИЕНТАЛЬ 2201187526; 6. SOKOLOV 297650642; 7. Veronika jewelry factory 2712942859; 8. UVI jewellery 1607603860; 9. Slavna 1068896393; 10. SOKOLOV 297651986</li><li><strong>кулон сердечко серебро:</strong> 1. F-Jewelry 1608818363; 2. DevaFamily 3169325068; 3. Veronika jewelry factory 4594713442; 4. Veronika jewelry factory 2718127279; 5. Maskom 3469139751; 6. Магазин ювелирных украшений &quot;JULE&quot; 1639805436; 7. Вeautiful day 859028408; 8. SOKOLOV 1294202748; 9. ADAMAS 2054059782; 10. Hodakova 3841703564</li><li><strong>кулон сердце серебро 925:</strong> 1. SOKOLOV 1400725722; 2. F-Jewelry 1608818363; 3. Магазин ювелирных украшений &quot;JULE&quot; 3463825128; 4. Veronika jewelry factory 2718127279; 5. SOKOLOV 590739463; 6. Veronika jewelry factory 4594713442; 7. Магазин ювелирных украшений &quot;JULE&quot; 1639805510; 8. SOKOLOV 655505211; 9. SOKOLOV 1294202748; 10. SOKOLOV 1209664945</li><li><strong>кулон серебро 925 женский:</strong> 1. SOKOLOV 655501554; 2. Официальный магазин &quot;Ювелир Карат&quot; 230632034; 3. Veronika jewelry factory 2718127279; 4. Veronika jewelry factory 4594713442; 5. Maskom 3490651493; 6. 585 ЗОЛОТОЙ 2731589836; 7. БЕРЕГИ_925 2732115160; 8. ГРАНДАУРУМ 1312651657; 9. SOKOLOV 297656618; 10. SOKOLOV 590739463</li><li><strong>подвеска сердце с фианитом:</strong> 1. Saxar and Bysinka 4670811747; 2. Saxar and Bysinka 1527057328; 3. Saxar and Bysinka 2163462447; 4. Saxar and Bysinka 1527028058; 5. Saxar and Bysinka 1548488017; 6. YM Store 1805032436; 7. Saxar and Bysinka 2261313334; 8. Saxar and Bysinka 1551086847; 9. YM Store 3074562309; 10. YM Store 1805032187</li></ul></details>
+        </section>
+
+    <footer>
+      Сгенерировано из локального архива мониторинга. Raw JSON и JSONL не публикуются в этой HTML-витрине.
+    </footer>
+  </main>
+</body>
+</html>
